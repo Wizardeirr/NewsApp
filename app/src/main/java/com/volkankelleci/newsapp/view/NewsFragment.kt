@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.volkankelleci.newsapp.R
 
 
-class NewsFragment : Fragment() {
+class NewsFragment : Fragment(R.layout.fragment_news) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

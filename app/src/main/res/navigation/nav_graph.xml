@@ -3,51 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/newsFragment">
-
+    app:startDestination="@id/articleFragment">
     <fragment
-        android:id="@+id/newsFragment"
-        android:name="com.volkankelleci.newsapp.NewsFragment"
-        android:label="fragment_news"
-        tools:layout="@layout/fragment_news" >
+        android:id="@+id/articleFragment"
+        android:name="com.volkankelleci.newsapp.view.ArticleFragment"
+        android:label="ArticleFragment" />
+    <fragment
+        android:id="@+id/newsFragment2"
+        android:name="com.volkankelleci.newsapp.view.NewsFragment"
+        android:label="NewsFragment" >
         <action
-            android:id="@+id/action_newsFragment_to_articleFragment"
-            app:destination="@id/articleFragment"
-            app:enterAnim="@android:anim/slide_out_right"
-            app:exitAnim="@android:anim/slide_in_left"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
+            android:id="@+id/action_newsFragment2_to_articleFragment"
+            app:destination="@id/articleFragment" />
     </fragment>
     <fragment
         android:id="@+id/savedFragments"
-        android:name="com.volkankelleci.newsapp.SavedFragments"
-        android:label="fragment_saved_fragments"
-        tools:layout="@layout/fragment_saved_fragments" >
+        android:name="com.volkankelleci.newsapp.view.SavedFragments"
+        android:label="SavedFragments" >
         <action
-            android:id="@+id/action_savedFragments_to_articleFragment2"
-            app:destination="@id/articleFragment"
-            app:enterAnim="@android:anim/slide_out_right"
-            app:exitAnim="@android:anim/slide_in_left"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
+            android:id="@+id/action_savedFragments_to_articleFragment"
+            app:destination="@id/articleFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.volkankelleci.newsapp.SearchFragment"
-        android:label="fragment_search"
-        tools:layout="@layout/fragment_search" >
+        android:name="com.volkankelleci.newsapp.view.SearchFragment"
+        android:label="SearchFragment" >
         <action
             android:id="@+id/action_searchFragment_to_articleFragment"
-            app:destination="@id/articleFragment"
-            app:enterAnim="@android:anim/slide_out_right"
-            app:exitAnim="@android:anim/slide_in_left"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
+            app:destination="@id/articleFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/articleFragment"
-        android:name="com.volkankelleci.newsapp.ArticleFragment"
-        android:label="fragment_article"
-        tools:layout="@layout/fragment_article"
-       />
 </navigation>
