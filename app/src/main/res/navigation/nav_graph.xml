@@ -49,8 +49,5 @@
         android:name="com.volkankelleci.newsapp.ArticleFragment"
         android:label="fragment_article"
         tools:layout="@layout/fragment_article"
-        app:enterAnim="@android:anim/slide_out_right"
-        app:exitAnim="@android:anim/slide_in_left"
-        app:popEnterAnim="@android:anim/slide_in_left"
-        app:popExitAnim="@android:anim/slide_out_right" />
+       />
 </navigation>
