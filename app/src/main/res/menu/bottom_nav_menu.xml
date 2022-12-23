@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Breaking News">
+    <item android:title="Breaking News"
+        android:id="@+id/homeMenuButton"
+        android:icon="@drawable/home_icon">
+    </item>
+    <item android:title="Saved News"
+        android:id="@+id/savedMenuButton"
+        android:icon="@drawable/add_icon">
 
     </item>
-    <item android:title="Saved News">
-
-    </item>
-    <item android:title="Search News">
+    <item android:title="Search News"
+        android:id="@+id/searchMenuButton"
+        android:icon="@drawable/search_icon">
 
     </item>
 </menu>
