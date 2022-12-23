@@ -11,12 +11,30 @@
         android:label="fragment_news"
         tools:layout="@layout/fragment_news" >
         <action
-            android:id="@+id/action_newsFragment_to_savedFragments"
-            app:destination="@id/savedFragments" />
+            android:id="@+id/action_newsFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
     </fragment>
     <fragment
         android:id="@+id/savedFragments"
         android:name="com.volkankelleci.newsapp.SavedFragments"
         android:label="fragment_saved_fragments"
-        tools:layout="@layout/fragment_saved_fragments" />
+        tools:layout="@layout/fragment_saved_fragments" >
+        <action
+            android:id="@+id/action_savedFragments_to_articleFragment2"
+            app:destination="@id/articleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.volkankelleci.newsapp.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="com.volkankelleci.newsapp.ArticleFragment"
+        android:label="fragment_article"
+        tools:layout="@layout/fragment_article" />
 </navigation>
