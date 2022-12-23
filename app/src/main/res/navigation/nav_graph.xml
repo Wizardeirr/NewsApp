@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/newsFragment">
 
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.volkankelleci.newsapp.NewsFragment"
+        android:label="fragment_news"
+        tools:layout="@layout/fragment_news" >
+        <action
+            android:id="@+id/action_newsFragment_to_savedFragments"
+            app:destination="@id/savedFragments" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedFragments"
+        android:name="com.volkankelleci.newsapp.SavedFragments"
+        android:label="fragment_saved_fragments"
+        tools:layout="@layout/fragment_saved_fragments" />
 </navigation>
