@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.volkankelleci.newsapp.MainActivity
 import com.volkankelleci.newsapp.R
+import com.volkankelleci.newsapp.viewmodel.NewsViewModel
 
 class SavedFragments : Fragment(R.layout.fragment_saved_fragments) {
-
+    lateinit var viewModel: NewsViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -20,6 +22,11 @@ class SavedFragments : Fragment(R.layout.fragment_saved_fragments) {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_saved_fragments, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel=(activity as MainActivity).viewModel
     }
 
 
