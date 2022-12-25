@@ -5,12 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.volkankelleci.newsapp.MainActivity
 import com.volkankelleci.newsapp.R
 import com.volkankelleci.newsapp.adapter.ArticleAdapter
+import com.volkankelleci.newsapp.model.NewsResponse
+import com.volkankelleci.newsapp.util.Resource
 import com.volkankelleci.newsapp.viewmodel.NewsViewModel
 import kotlinx.android.synthetic.main.fragment_news.*
+import okhttp3.Response
 
 
 class NewsFragment : Fragment(R.layout.fragment_news) {
@@ -31,6 +35,20 @@ class NewsFragment : Fragment(R.layout.fragment_news) {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel=(activity as MainActivity).viewModel
+        viewModel.breakingNews.observe(viewLifecycleOwner, Observer {response->
+            response?.let {
+                if (it!=null){
+                    Resource.success(Resource)
+                it.get()?.let {newsResponse ->
+                    articleAdapter.arts=newsResponse.articles
+                }
+                }
+
+                progressBar.visibility=View.GONE
+            }
+
+        })
+
     }
 
     private fun setupRecyclerView(){
