@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.volkankelleci.newsapp.MainActivity
@@ -43,8 +44,8 @@ class NewsFragment : Fragment(R.layout.fragment_news) {
                     articleAdapter.arts=newsResponse.articles
                 }
                 }
-
                 progressBar.visibility=View.GONE
+                Toast.makeText(this.requireContext(),"Check Your Internet",Toast.LENGTH_LONG)
             }
 
         })
