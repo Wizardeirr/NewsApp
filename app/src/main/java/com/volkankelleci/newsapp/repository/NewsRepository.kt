@@ -6,7 +6,8 @@ import com.volkankelleci.newsapp.room.ArticleDataBase
 class NewsRepository(
     val db:ArticleDataBase
 ) {
-
     suspend fun getBreakingNews(countryCode:String,pageNumber:Int)=
         RetrofitService.api.getBreakingNews(countryCode,pageNumber)
+
+
 }
