@@ -10,7 +10,7 @@ import com.volkankelleci.newsapp.R
 import com.volkankelleci.newsapp.viewmodel.NewsViewModel
 
 class SavedFragments : Fragment(R.layout.fragment_saved_fragments) {
-    lateinit var viewModel: NewsViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -26,7 +26,7 @@ class SavedFragments : Fragment(R.layout.fragment_saved_fragments) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel=(activity as MainActivity).viewModel
+
     }
 
 

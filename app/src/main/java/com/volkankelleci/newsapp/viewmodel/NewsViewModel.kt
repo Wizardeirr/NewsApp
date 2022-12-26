@@ -3,15 +3,15 @@ package com.volkankelleci.newsapp.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.bumptech.glide.load.engine.Resource
 import com.volkankelleci.newsapp.model.NewsResponse
-import com.volkankelleci.newsapp.repository.NewsRepository
+import com.volkankelleci.newsapp.room.ArticleDAO
 import kotlinx.coroutines.launch
 
 class NewsViewModel(
     val newsRepository: NewsRepository,
+    val  dao:ArticleDAO
 ):ViewModel() {
-    val breakingNews:MutableLiveData<Resource<NewsResponse>> =MutableLiveData()
+    val news= MutableLiveData<List<NewsResponse>>()
     var breakingPages=1
 
     init {

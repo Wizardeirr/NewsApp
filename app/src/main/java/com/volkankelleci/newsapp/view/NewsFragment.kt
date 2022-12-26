@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.volkankelleci.newsapp.MainActivity
 import com.volkankelleci.newsapp.R
@@ -19,8 +21,8 @@ import okhttp3.Response
 
 
 class NewsFragment : Fragment(R.layout.fragment_news) {
-    lateinit var viewModel:NewsViewModel
-    lateinit var articleAdapter:ArticleAdapter
+    private lateinit var viewModel:NewsViewModel
+    private lateinit var articleAdapter:ArticleAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -34,29 +36,12 @@ class NewsFragment : Fragment(R.layout.fragment_news) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val viewModel=ViewModelProvider(requireActivity()).get(NewsViewModel::class.java)
 
-        viewModel=(activity as MainActivity).viewModel
-        viewModel.breakingNews.observe(viewLifecycleOwner, Observer {response->
-            response?.let {
-                if (it!=null){
-                    Resource.success(Resource)
-                it.get()?.let {newsResponse ->
-                    articleAdapter.arts=newsResponse.articles
-                }
-                }
-                progressBar.visibility=View.GONE
-                Toast.makeText(this.requireContext(),"Check Your Internet",Toast.LENGTH_LONG)
-            }
 
-        })
 
     }
 
-    private fun setupRecyclerView(){
-        articleAdapter=ArticleAdapter()
-        breakingNewsRecycler.apply {
-            adapter=articleAdapter
-            layoutManager=LinearLayoutManager(activity)
-        }
-    }
+
+
 }

@@ -1,5 +1,6 @@
 package com.volkankelleci.newsapp.retrofit
 
+import com.volkankelleci.newsapp.model.NewsResponse
 import com.volkankelleci.newsapp.util.APIService.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -8,21 +9,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class RetrofitService {
 
-    companion object{
-        private val retrofit by lazy {
-            val logging=HttpLoggingInterceptor()
-            logging.setLevel(HttpLoggingInterceptor.Level.BODY)
-            val client=OkHttpClient.Builder()
-                .addInterceptor(logging)
-                .build()
-            Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(client)
-                .build()
-        }
-        val api by lazy {
-            retrofit.create(RetrofitAPI::class.java)
-        }
+    private val api=Retrofit.Builder().baseUrl(BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create())
+        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+        .build()
+        .create(RetrofitAPI::class.java)
+    fun getData():Single<List<NewsResponse>>{
+        return api.getBreakingNews()
     }
-}
+ }

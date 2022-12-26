@@ -10,7 +10,7 @@ import com.volkankelleci.newsapp.R
 import com.volkankelleci.newsapp.viewmodel.NewsViewModel
 
 class SearchFragment : Fragment(R.layout.fragment_search) {
-    lateinit var viewModel: NewsViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -26,6 +26,6 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel=(activity as MainActivity).viewModel
+
     }
 }
